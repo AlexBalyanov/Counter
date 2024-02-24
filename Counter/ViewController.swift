@@ -11,6 +11,19 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupConstraints()
+        setupUI()
+    }
+    
+    private func setupConstraints() {
+        plusButtonStatus.frame = CGRect(x: 212, y: 509, width: 122, height: 60)
+        minusButtonStatus.frame = CGRect(x: 61, y: 509, width: 122, height: 60)
+        resetButtonStatus.frame = CGRect(x: 135, y: 577, width: 122, height: 60)
+        counterLabel.frame = CGRect(x: 148, y: 416, width: 100, height: 55)
+        dateStatus.frame = CGRect(x: 25, y: 83, width: 350, height: 300)
+    }
+    
+    private func setupUI() {
         counterLabel.text = "0"
         dateStatus.text = "История изменений:\n"
         plusButtonStatus.tintColor = .red
@@ -22,11 +35,6 @@ class ViewController: UIViewController {
         plusButtonStatus.setImage(UIImage(systemName: "plus.rectangle"), for: .normal)
         minusButtonStatus.setImage(UIImage(systemName: "minus.rectangle"), for: .normal)
         resetButtonStatus.setImage(UIImage(systemName: "trash"), for: .normal)
-        plusButtonStatus.frame = CGRect(x: 212, y: 509, width: 122, height: 60)
-        minusButtonStatus.frame = CGRect(x: 61, y: 509, width: 122, height: 60)
-        resetButtonStatus.frame = CGRect(x: 135, y: 577, width: 122, height: 60)
-        counterLabel.frame = CGRect(x: 148, y: 416, width: 100, height: 55)
-        dateStatus.frame = CGRect(x: 25, y: 83, width: 350, height: 300)
         counterLabel.font = UIFont.systemFont(ofSize: 50.0)
     }
     
