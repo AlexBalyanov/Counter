@@ -7,13 +7,29 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupConstraints()
         setupUI()
     }
+    
+    
+    private let formatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.timeStyle = .medium
+        formatter.dateStyle = .short
+        return formatter
+    }()
+    
+    private var counter = 0
+    
+    @IBOutlet weak private var plusButtonStatus: UIButton!
+    @IBOutlet weak private var minusButtonStatus: UIButton!
+    @IBOutlet weak private var counterLabel: UILabel!
+    @IBOutlet weak private var resetButtonStatus: UIButton!
+    @IBOutlet weak private var dateStatus: UITextView!
     
     private func setupConstraints() {
         plusButtonStatus.frame = CGRect(x: 212, y: 509, width: 122, height: 60)
@@ -38,21 +54,6 @@ class ViewController: UIViewController {
         counterLabel.font = UIFont.systemFont(ofSize: 50.0)
     }
     
-    private let formatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.timeStyle = .medium
-        formatter.dateStyle = .short
-        return formatter
-    }()
-    
-    @IBOutlet weak private var plusButtonStatus: UIButton!
-    @IBOutlet weak private var minusButtonStatus: UIButton!
-    @IBOutlet weak private var counterLabel: UILabel!
-    @IBOutlet weak private var resetButtonStatus: UIButton!
-    @IBOutlet weak private var dateStatus: UITextView!
-    
-    private var counter = 0
-    
     @IBAction private func plusButton(_ sender: Any) {
         counter += 1
         counterLabel.text = String(counter)
@@ -76,6 +77,5 @@ class ViewController: UIViewController {
             dateStatus.insertText("[\(formatter.string(from: Date.now))]: значение сброшено\n")
         }
     }
-    
 }
 
